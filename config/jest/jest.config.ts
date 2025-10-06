@@ -16,10 +16,9 @@ const config: Config = {
     // cacheDirectory: "/private/var/folders/j6/1hd_p7q928dbnkvkpsy43sx00000gn/T/jest_dx",
 
     // Automatically clear mock calls, instances, contexts and results before every test
-
-    clearMocks: true,
-    testEnvironment: 'jsdom',
-    coveragePathIgnorePatterns: ['\\\\node_modules\\\\'],
+    clearMocks: true, // Очищает мок-объекты между тестами
+    testEnvironment: 'jsdom', // Устанавливает среду выполнения тестов в JSDOM
+    coveragePathIgnorePatterns: ['/node_modules/'], // Исключает папку node_modules из покрытия тестами,
     moduleFileExtensions: [
         'js',
         'mjs',
@@ -29,11 +28,11 @@ const config: Config = {
         'tsx',
         'json',
         'node',
-    ],
-    moduleDirectories: ['node_modules'],
-    modulePaths: ['<rootDir>src'],
-    testMatch: ['<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'],
-    rootDir: '../../',
+    ], // Поддерживаемые расширения файлов
+    moduleDirectories: ['node_modules'], // Каталоги, в которых будет происходить поиск модулей
+    modulePaths: ['<rootDir>src'], // Позволяет использовать абсолютные пути в импортах
+    testMatch: ['<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'], // Здесь указываем свой шаблон поиска тестов
+    rootDir: '../../', // Здесь устанавливаем нужное значение для корневой директории проекта, так как мы перенесли файл в папку - config > jest
     setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
     moduleNameMapper: {
         '\\.(s?css)$': 'identity-obj-proxy',
@@ -62,6 +61,9 @@ const config: Config = {
     // coverageDirectory: undefined,
 
     // An array of regexp pattern strings used to skip coverage collection
+    // coveragePathIgnorePatterns: [
+    //   "/node_modules/"
+    // ],
 
     // Indicates which provider should be used to instrument code for coverage
     // coverageProvider: "babel",
@@ -104,8 +106,23 @@ const config: Config = {
     // maxWorkers: "50%",
 
     // An array of directory names to be searched recursively up from the requiring module's location
+    // moduleDirectories: [
+    //   "node_modules"
+    // ],
 
     // An array of file extensions your modules use
+    // moduleFileExtensions: [
+    //   "js",
+    //   "mjs",
+    //   "cjs",
+    //   "jsx",
+    //   "ts",
+    //   "mts",
+    //   "cts",
+    //   "tsx",
+    //   "json",
+    //   "node"
+    // ],
 
     // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
     // moduleNameMapper: {},
@@ -141,6 +158,7 @@ const config: Config = {
     // restoreMocks: false,
 
     // The root directory that Jest should scan for tests and modules within
+    // rootDir: undefined,
 
     // A list of paths to directories that Jest should use to search for files in
     // roots: [
@@ -171,6 +189,10 @@ const config: Config = {
     // testLocationInResults: false,
 
     // The glob patterns Jest uses to detect test files
+    // testMatch: [
+    //   "**/__tests__/**/*.?([mc])[jt]s?(x)",
+    //   "**/?(*.)+(spec|test).?([mc])[jt]s?(x)"
+    // ],
 
     // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
     // testPathIgnorePatterns: [

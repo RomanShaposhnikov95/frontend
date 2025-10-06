@@ -60,7 +60,10 @@ export const UserTable = memo(() => {
             <CreateFormUser />
 
             <div className="w-full overflow-x-auto">
-                <Table className="table-fixed min-w-[700px] w-full">
+                <Table
+                    data-cy="user-table"
+                    className="table-fixed min-w-[700px] w-full"
+                >
                     <UserTableHeader />
                     <TableBody>
                         {!data || !data.logs.length ? (

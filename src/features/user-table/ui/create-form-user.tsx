@@ -59,6 +59,7 @@ export const CreateFormUser = memo(() => {
         <>
             <div className="flex justify-end p-2">
                 <Button
+                    data-cy="create-form-open-btn"
                     onClick={openModal}
                     size="icon"
                 >
@@ -86,6 +87,7 @@ export const CreateFormUser = memo(() => {
                                         <FormLabel>Owner</FormLabel>
                                         <FormControl>
                                             <Input
+                                                data-cy="owner-create-input"
                                                 placeholder="owner"
                                                 {...field}
                                             />
@@ -102,6 +104,7 @@ export const CreateFormUser = memo(() => {
                                         <FormLabel>Log Text</FormLabel>
                                         <FormControl>
                                             <Input
+                                                data-cy="text-create-input"
                                                 placeholder="log text"
                                                 {...field}
                                             />
@@ -111,6 +114,7 @@ export const CreateFormUser = memo(() => {
                                 )}
                             />
                             <Button
+                                data-cy="create-submit-button"
                                 disabled={createUserMutation.isPending}
                                 type="submit"
                             >

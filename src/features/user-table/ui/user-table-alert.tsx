@@ -40,6 +40,7 @@ export const UserTableAlert = ({
                         Cancel
                     </AlertDialogCancel>
                     <AlertDialogAction
+                        data-cy="delete-alert-button"
                         disabled={isPending}
                         onClick={removeUser}
                     >

@@ -50,10 +50,24 @@ export const UserTableRow = memo((props: PropsType) => {
     return (
         <TableRow>
             <TableCell className="truncate w-64">
-                {editMode ? <Input {...ownerField} /> : data.owner}
+                {editMode ? (
+                    <Input
+                        {...ownerField}
+                        data-cy="owner-edit-input"
+                    />
+                ) : (
+                    data.owner
+                )}
             </TableCell>
             <TableCell className="truncate w-64">
-                {editMode ? <Input {...textField} /> : data.text}
+                {editMode ? (
+                    <Input
+                        {...textField}
+                        data-cy="text-edit-input"
+                    />
+                ) : (
+                    data.text
+                )}
             </TableCell>
             <TableCell>{formatDate(data.createdAt)}</TableCell>
             <TableCell>{formatDate(data.updatedAt)}</TableCell>
@@ -61,6 +75,7 @@ export const UserTableRow = memo((props: PropsType) => {
                 <div className="flex gap-2 justify-end">
                     {editMode && (
                         <Button
+                            data-cy="edit-mode-submit-btn"
                             onClick={handleSubmit((values) =>
                                 handleUpdate(data.id, values),
                             )}
@@ -77,6 +92,7 @@ export const UserTableRow = memo((props: PropsType) => {
                     )}
                     {!editMode && (
                         <Button
+                            data-cy="edit-mode-btn"
                             type="button"
                             onClick={enableEditMode}
                             size="icon"
@@ -86,6 +102,7 @@ export const UserTableRow = memo((props: PropsType) => {
                         </Button>
                     )}
                     <Button
+                        data-cy="delete-row-button"
                         type="button"
                         onClick={() => getUserData(data)}
                         size="icon"
